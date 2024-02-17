@@ -107,7 +107,7 @@
             color: whitesmoke;
         }
 
-        img {
+        #nav_icon {
             padding-left: 40px;
             width: 40px;
             padding-right: 8px;
@@ -161,16 +161,22 @@
         input:hover{
             border: 1px solid white;
         }
+        .images{
+            float: inline-start;
+            vertical-align: middle;
+            width: 20px;
+            margin-left: 20px;
+        }
     </style>
 </head>
 <body>
-    <nav><img src="spotify_img.png">Spotify</nav>
+    <nav><img src="spotify_img.png" id="nav_icon">Spotify</nav>
     <div class="container">
         <div class="login-box">
             <h2>Log in To Spotify</h2>
-            <button type="button">Sign up with Google</button>
-            <button type="button">Sign up with Facebook</button>
-            <button type="button">Sign up with Apple</button>
+            <button type="button"><img src="google.png" class="images">  Sign up with Google</button>
+            <button type="button"><img src="facebook.png" class="images"> Sign up with Facebook</button>
+            <button type="button"><img src="apple.png" class="images">  Sign up with Apple</button>
             <button type="button"><a href="Phone_number.html" id="ph">Continue With Phone number</a></button>
             <hr id="part">
             <form>
