@@ -65,6 +65,24 @@
             background-color: #09782e;
         }
 
+        #login_btn {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none;
+            background-color: #17ad4b;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 30px;
+            color: black;
+
+        }
+
+        #login_btn:hover {
+            background-color: #09782e;
+        }
+
         hr {
             width: 100%;
             border-right: none;
@@ -179,10 +197,10 @@
             <button type="button"><img src="apple.png" class="images">  Sign up with Apple</button>
             <button type="button"><a href="Phone_number.html" id="ph">Continue With Phone number</a></button>
             <hr id="part">
-            <form>
-                Email or username <br><input type="text" placeholder="Username" required>
-                Password <br><input type="password" placeholder="Password" required><br><br>
-                <button type="submit"><b>Log in</b></button>
+            <form id="login-form">
+                Email or username <br><input type="text" id="username" placeholder="Username" required>
+                Password <br><input type="password" id="password" placeholder="Password" required><br><br>
+                <button type="submit" id="login_btn"><b>Log in</b></button>
             </form>
             <u>Forget your password</u>
             <hr>
@@ -193,5 +211,22 @@
         This site is protected by reCAPTCHA and the Google <u class="captcha"><a href="https://policies.google.com/terms">Privacy Policy
             </a></u>and <u class="captcha"><a href="https://policies.google.com/terms"> Terms of Service</a></u> apply.
     </footer>
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get values from inputs
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username.trim() === "rijul" && password === "2152") {
+                // Redirect to the index page or perform further actions
+                window.location.href = "index.html";
+            } else {
+                // Show error message
+                alert("Incorrect username or password.");
+            }
+        });
+    </script>
 </body>
 </html>

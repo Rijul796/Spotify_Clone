@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify-Web</title>
+    <link rel="icon" href="spotifyIcon.ico" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        body{
+            background-color: black;
+            font-family: sans-serif;
+            overflow-x: hidden;
+            scrollbar-width: 4px;
+        }
+        #home{
+            position: fixed;
+            min-width: 360px;
+            height: 112px;
+            line-height: 20px;
+            color: whitesmoke;
+            background-color:#121212;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+        .hm{
+            font-size: 16px;
+            padding-left: 50px;
+            cursor: pointer;
+        }
+        #Search{
+            padding-top: 8px;
+            padding-left: 55px;
+        }
+        .ic{
+            color:whitesmoke;
+            margin-left: -30px;
+            padding-right: 20px;
+            font-size: 24px;
+        }
+        #nav{
+            position: fixed;
+            right: 0px;
+            left:380px;
+            margin-right: 5px;
+            background-color:#121212;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            min-width: 500px;
+        }
+        #angle{
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background-color: black;
+            color: white;
+            margin-left: 10px;
+        }
+        #bell{
+            float: right;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        #user{
+            float: right;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: greenyellow;
+            border: 3px solid black;
+            
+        }
+
+        button{
+            cursor: pointer;
+        }
+
+        #premium{
+            font-size: 14px;
+            font-weight:550;
+            padding: 4px 16px;
+            height: 32px;
+            border-radius: 20px;
+            border: none;
+            float: right;
+            margin-right: 10px; 
+        }
+        #down{
+            float: right;
+            width: 118.58px;
+            height: 32px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-right: 16px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            border-radius: 20px;
+            border: none;
+            background-color: black;
+            margin-right: 10px;
+        }
+        .icnd{
+            font-size: 16px;
+        }
+
+        .btns{
+            height: 48px;
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            font-size: 14px;
+
+        }
+        #all{
+            width: 40.85px;
+            height: 32px;
+            border-radius: 20px;
+            border: none;
+        }
+        #music{
+            width: 62.56px;
+            height: 32px;
+            background-color: #292727;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-left: 10px;
+
+        }
+
+        #new_btns{
+            height: 50px;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        #pod{
+            margin-left: 10px;
+            width: 80.81px;
+            height: 32px;
+            font-size: 14px;
+            background-color: #292727;
+            color: white;
+            border-radius: 20px;
+            border: none;
+        }
+        #lib{
+            position: fixed;
+            background-color:#121212;
+            display: inline-grid;
+            margin-top: 122px;
+            margin-left: 10px;
+            color: white;
+            min-width: 360px;
+            border-radius: 10px;
+            font-size: 16px;
+            left:0;
+            min-height: 450px;
+            padding-top: 20px;
+        }
+        .libr{
+            background-color: #282727;
+            margin-left: 10px;
+            margin-right: 10px;
+            border-radius: 10px;
+            height: 140px;
+            font-weight: 500px;
+        }
+        .plib{
+            font-size: 16px;
+            color: white;
+            padding-left: 20px;
+        }
+        #lib_icn{
+            display: inline;
+
+        }
+        .libp{
+            display: inline;
+            padding-right: 110px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .lbc{
+            margin-left: 30px;
+            margin-right: 10px;
+        }
+        .pls{
+            margin-right: 20px;
+        }
+        .lbtn{
+            margin-left: 20px;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 25px;
+            border: none;
+        }
+        #plusButton{
+            border: none;
+            background-color: #121212;
+            color: rgba(255,255,255,0.6);;
+        }
+        #arrowButton{
+            border: none;
+            background-color: #121212;
+            color: rgba(255,255,255,0.6);
+        }
+        #arrowButton:hover{
+            color: white;
+        }
+        #plusButton:hover{
+            color: white;
+        }
+        .libp:hover{
+            color: white;
+        }
+        .lbtn:hover{
+            transform: scale(1.05);
+        }
+        #premium:hover{
+            transform: scale(1.05);
+        }
+        #down:hover{
+            transform: scale(1.05);
+        }
+        #bell:hover{
+            transform: scale(1.05);
+        }
+        #user:hover{
+            transform: scale(1.05);
+        }
+        #Search{
+            color: rgba(255,255,255,0.6);
+        }
+        #searchIcon{
+            color: rgba(255,255,255,0.6);
+        }
+        #Search:hover{
+            color: white;
+            #searchIcon{
+                color: white;
+            }
+        }
+        #music:hover{
+            background-color: #3a3a3a;
+        }
+        #pod:hover{
+            background-color: #3a3a3a;
+        }
+        #songs{
+            padding-left: 20px;
+            position: relative;
+            top: 110px;
+            left: 373px;
+            width: 1108px;
+            height: 1434.3px;
+            padding-right: 10px;
+            background-color: #121212;
+            display: grid;
+            grid-template-columns: 211.96px 211.96px 211.96px 211.96px 211.96px;
+            grid-template-rows: 31.2px 292.77px 31.2px 292.77px 31.2px 292.77px 31.2px 292.77px;
+            row-gap: 20px;
+            column-gap: 15px;
+        }
+        #try{
+            grid-row: 1/2;
+            grid-column:1/3;
+        }
+        #featured{
+            grid-row: 3/4;
+            grid-column: 1/3;
+        }
+        #toTry{
+            grid-row: 7/8;
+            grid-column: 1/3;
+        }
+        .topper{
+            color: white;
+            position: absolute;
+            margin-left: 13px;
+            margin-top: 10px;
+            background-color: #121212;
+            font-size: 24px;
+            border: none;
+            font-weight: bold;
+        }
+        .topper:hover{
+            text-decoration: underline;
+        }
+        .showAll{
+            background-color: #121212;
+            color: rgba(255,255,255,0.6);
+            border: none;
+            position: absolute;
+            font-weight: bold;
+            font-size: 14px;
+            align-self: end;
+            justify-self: end;
+            margin-right: 20px;
+        }
+        .showAll:hover{
+            text-decoration: underline;
+        }
+        #show1{
+            grid-row: 1/2;
+            grid-column: 5/6;
+        }
+        #show2{
+            grid-row: 3/4;
+            grid-column: 5/6;
+        }
+        #show3{
+            grid-row: 5/6;
+            grid-column: 5/6;
+        }
+        #show4{
+            grid-row: 7/8;
+            grid-column: 5/6;
+        }
+        .image{
+            position: absolute;
+            top: 15px;
+            left: 8px;
+        }
+        #img14{
+            height: 200px;
+        }
+
+        #img15{
+            height: 200px;
+        }
+        #img16{
+            height: 200px;
+        }
+
+        #img17{
+            width: 180px;
+            height: 200px;
+        }
+        .fa-play{
+            background-color: rgba(29,185,4);
+            font-size: 16px;
+            position: absolute;
+            z-index: 1;
+            top: 152px;
+            left: 140px;
+            border-radius: 50%;
+            padding: 17px 20px 17px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .songDiv{
+            position: relative;
+            width: 211.96px;
+            height: 292.77px;
+            background-color: #1d1d1d;
+            transition-property: all;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in;
+            border-radius: 5%;
+        }
+        .songDiv:hover{
+            cursor: pointer;
+            background-color: #343333;
+            .fa-play{
+                opacity: 1;
+                top: 145px;
+            }
+        }
+        .fa-play:hover{
+            transform: scale(1.1);
+            background-color: rgb(31, 201, 5);
+        }
+        #first{
+            grid-row: 2/3;
+            grid-column: 1/2;
+        }
+        #second{
+            grid-row: 2/3;
+            grid-column: 2/3;
+        }
+        #third{
+            grid-row: 2/3;
+            grid-column: 3/4;
+        }
+        #fourth{
+            grid-row: 2/3;
+            grid-column: 4/5;
+        }
+        #fifth{
+            grid-row: 2/3;
+            grid-column: 5/6;
+        }
+        #sixth{
+            grid-row: 4/5;
+            grid-column: 1/2;
+        }
+        #seventh{
+            grid-row: 4/5;
+            grid-column: 2/3;
+        }
+        #eigth{
+            grid-row: 4/5;
+            grid-column: 3/4;
+        }
+        #ninth{
+            grid-row: 4/5;
+            grid-column: 4/5;
+        }
+        #tenth{
+            grid-row: 4/5;
+            grid-column: 5/6;
+        }
+        #eleventh{
+            grid-row: 6/7;
+            grid-column: 1/2;
+        }
+        #twelfth{
+            grid-row: 6/7;
+            grid-column: 2/3;
+        }
+        #thirteenth{
+            grid-row: 6/7;
+            grid-column: 3/4;
+        }
+        #fourteenth{
+            grid-row: 6/7;
+            grid-column: 4/5;
+        }
+        #fifteenth{
+            grid-row: 6/7;
+            grid-column: 5/6;
+        }
+        #sixteenth{
+            grid-row: 8/9;
+            grid-column: 1/2;
+        }
+        #seventeenth{
+            grid-row: 8/9;
+            grid-column: 2/3;
+        }
+        #eighteenth{
+            grid-row: 8/9;
+            grid-column: 3/4;
+        }
+        #nineteenth{
+            grid-row: 8/9;
+            grid-column: 4/5;
+        }
+        #twentieth{
+            grid-row: 8/9;
+            grid-column: 5/6;
+        }
+        #original{
+            grid-row: 5/6;
+            grid-column: 1/3;
+        }
+        .imageHeading{
+            color: white;
+            font-size: 16px;
+            position: absolute;
+            top: 230px;
+            left: 18px;
+            font-weight: bold;
+        }
+        .imageDescription{
+            color: white;
+            font-size: 14px;
+            position: absolute;
+            top: 250px;
+            left: 18px;
+        }
+        footer{
+            position: relative;
+            top: 98px;
+            left: 373px;
+            width: 1076px;
+            height: 450px;
+            background-color: #121212;
+            padding: 8px 32px 40px;
+        }
+        .topFoot{
+            color: white;
+            font-weight: bold;
+        }
+        .bottomFoot{
+            color: rgba(255,255,255,0.6);
+            margin-top: 10px;
+        }
+        .bottomFoot:hover{
+            color: white;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .list{
+            list-style-type: none;
+            display: inline-block;
+        }
+        #list1{
+            position: absolute;
+            top: 50px;
+        }
+        #list2{
+            position: absolute;
+            top: 50px;
+            left: 250px;
+        }
+        #list3{
+            position: absolute;
+            top: 50px;
+            left: 500px;
+        }
+        .footerIcons{
+            cursor: pointer;
+            background-color: #2a2929;
+            position: absolute;
+            border-radius: 100%;
+            border: none;
+            height: 40px;
+            width: 40px;
+            color: white;
+            font-size: 24px;
+        }
+        .footerIcons:hover{
+            background-color: rgba(255,255,255,0.4);
+        }
+        .instagramIcon{
+            padding-left: 9px;
+            padding-top: 8px;
+        }
+        #instagramAnchor{
+            top: 60px;
+            left: 950px;
+        }
+        .twitterIcon{
+            padding-left: 8px;
+            padding-top: 8px;
+        }
+        #twitterAnchor{
+            top: 60px;
+            left: 1010px;
+        }
+        .facebookIcon{
+            padding-left: 8px; 
+            padding-top: 8px;
+        }
+        #facebookAnchor{
+            top: 60px;
+            left: 1070px;
+        }
+        hr{
+            border: 1px solid rgba(255,255,255,0.1);
+            position: absolute;
+            width: 1063px;
+            top: 280px;
+        }
+        #bottomLinks{
+            display: inline-block;
+            position: absolute;
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            top: 350px;
+        }
+        .bottomAnchor{
+            margin-right: 16px;
+        }
+        .bottomAnchor:hover{
+            color: white;
+            cursor: pointer;
+        }
+        #AB{
+            font-size: 14px;
+            margin-left: 370px;
+        }
+        a{
+            text-decoration: none;
+            color: rgba(255,255,255,0.6);
+        }
+        ::-webkit-scrollbar{
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track{
+            background: black; 
+        }
+        ::-webkit-scrollbar-thumb{
+            background: rgba(255,255,255,0.4); 
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background: rgba(255,255,255,0.6); 
+        }
+        #topbar{
+            position: fixed;
+            top: 0px;
+            margin-bottom: 5px;
+            width: 1536px;
+            height: 8px;
+            background-color: black;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div id="topbar"></div>
+    <div id="home">
+        <p class="hm"><i class="fa-solid fa-house ic"></i> Home</p>
+        <p class="hm" id="Search"><i class="fa-solid fa-magnifying-glass ic"></i>Search</p>
+    </div>
+    <div id="nav">
+        <div class="btns">
+            <button id="angle"> <i class="fa-solid fa-chevron-left icn"></i></button>
+            <button id="angle"> <i class="fa-solid fa-chevron-right  icn"></i></button>   
+            <button id="user">R</button>
+            <button id="bell"> <i class="fa-regular fa-bell icn"></i></button>
+            <button id="down"> <i class="fa-regular fa-circle-down icnd"></i> Install App</button> 
+            <button id="premium">Explore Premium</button>
+        </div>
+        <div id="new_btns">
+            <button id="all">All</button><button id="music">Music</button><button id="pod">Podcasts</button>
+        </div>
+    </div>
+    <div id="lib">
+        <div id="lib_icn">
+        <i class="fa-solid fa-bars lbc"></i>
+        <p class="libp">Your Library</p>
+        <i class="fa-solid fa-plus pls"></i>
+        <i class="fa-solid fa-arrow-right"></i>
+        </div>
+        <div class="libr">
+            <p class="plib"><b>Create your first playlist</b></p>
+            <p class="plib">it's easy,we'll help you</p>
+            <button class="lbtn">Create playlist</button>
+        </div>
+        <div class="libr">
+           <p class="plib"><b>Let's find some podcasts to follow</b></p>
+           <p class="plib">we'll keep you updated on new episodes</p>
+           <button class="lbtn">Browse podcasts</button>
+        </div>
+    </div>
+    <div id="songs">
+        <button class="topper" id="try">
+            Try something else
+        </button>
+        <button class="showAll" id="show1">
+            Show all
+        </button>
+        <div id="first" class="songDiv">
+            <i class="fa-solid fa-play"></i>
+            <img src="1.png" id="img1" class="image">
+            <span class="imageHeading">
+                Hot Hits Hindi
+            </span>
+            <span class="imageDescription">
+                Hottest Hindi music served <br>
+                here. Cover - Animal
+            </span>
+        </div>
+        <div id="second" class="songDiv">
+            <i class="fa-solid fa-play"></i>
+            <img src="2.png" id="img2" class="image">
+            <span class="imageHeading">
+                All Out 00's Hindi
+            </span>
+            <span class="imageDescription">
+                Bollywood songs that ruled <br>
+                hearts in the Y2K decade.
+            </span>
+        </div>
+        <div id="third" class="songDiv">
+            <i class="fa-solid fa-play"></i>
+            <img src="3.png" id="img3" class="image">
+            <span class="imageHeading">
+                Hot Hits Punjabi
+            </span>
+            <span class="imageDescription">
+                Catch the hottest Punjabi <br>
+                tracks with Karan Aujla.
+            </span>
+        </div>
+        <div id="fourth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
+            <img src="4.png" id="img4" class="image">
+            <span class="imageHeading">
+                00's Love Hits
+            </span>
+            <span class="imageDescription">
+                Fall in love with 00's <br>
+                Bollywood like never before
+            </span>
+        </div>
+        <div id="fifth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
+            <img src="5.png" id="img5" class="image">
+            <span class="imageHeading">
+                Top 50 - Global
+            </span>
+            <span class="imageDescription">
+                Your daily update of the<br>
+                most played tracks right now
+            </span>
+        </div>
+        <button class="topper" id="featured">
+            Featured Charts
+        </button>
+        <button class="showAll" id="show2">
+            Show all
+        </button>
+        <div id="sixth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
+            <img src="6.png" id="img6" class="image">
+            <span class="imageHeading">
+                Top Songs - Global
+            </span>
+            <span class="imageDescription">
+                Your weekly update of the<br>
+                most played tracks
+            </span>
+        </div>
+        <div id="seventh" class="songDiv">
+            <i class="fa-solid fa-play"></i>
+            <img src="7.png" id="img7" class="image">
+            <span class="imageHeading">
+                Top Songs - India
+            </span>
+            <span class="imageDescription">
+                Your weekly update of the<br>
+                most played tracks
+            </span>
+        </div>
+        <div id="eigth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
+            <img src="8.png" id="img8" class="image">
+            <span class="imageHeading">
+                Top 50 - Global
+            </span>
+            <span class="imageDescription">
+                Your daily update of the<br>
+                most played tracks right now
+            </span>
+        </div>
+        <div id="ninth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
+            <img src="9.png" id="img9" class="image">
+            <span class="imageHeading">
+                Top 50 - India
+            </span>
+            <span class="imageDescription">
+                Your daily update of the<br>
+                most played tracks right now
+            </span>
+        </div>
+        <div id="tenth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
+            <img src="10.png" id="img10" class="image">
+            <span class="imageHeading">
+                Viral 50 - Global
+            </span>
+            <span class="imageDescription">
+                Your daily update of the<br>
+                most viral tracks right now
+            </span>
+        </div>
+        <button class="topper" id="original">
+            Spotify original podcasts
+        </button>
+        <button class="showAll" id="show3">
+            Show all
+        </button>
+        <div id="eleventh" class="songDiv">
+            <img src="11.png" id="img11" class="image">
+            <span class="imageHeading">
+                Aa Modati Alajadi
+            </span>
+            <span class="imageDescription">
+                Spotify Studios
+            </span>
+        </div>
+        <div id="twelfth" class="songDiv">
+            <img src="12.png" id="img12" class="image">
+            <span class="imageHeading">
+                Best Love Stories
+            </span>
+            <span class="imageDescription">
+                Spotify Studios
+            </span>
+        </div>
+        <div id="thirteenth" class="songDiv">
+            <img src="13.png" id="img13" class="image">
+            <span class="imageHeading">
+                The Horror Show
+            </span>
+            <span class="imageDescription">
+                TMV Studios
+            </span>
+        </div>
+        <div id="fourteenth" class="songDiv">
+            <img src="14.png" id="img14" class="image">
+            <span class="imageHeading">
+                Pretkotha
+            </span>
+            <span class="imageDescription">
+                Gourav Tapadar
+            </span>
+        </div>
+        <div id="fifteenth" class="songDiv">
+            <img src="15.png" id="img15" class="image">
+            <span class="imageHeading">
+                Naallanna Murukku 
+            </span>
+            <span class="imageDescription">
+                Spotify Studios
+            </span>
+        </div>
+        <button class="topper" id="toTry">
+            Shows to try
+        </button>
+        <button class="showAll" id="show4">
+            Show all
+        </button>
+        <div id="sixteenth" class="songDiv">
+            <img src="16.png" id="img16" class="image">
+            <span class="imageHeading">
+                Unreleased Grant
+            </span>
+            <span class="imageDescription">
+                Cinnamongurl
+            </span>
+        </div>
+        <div id="seventeenth" class="songDiv">
+            <img src="17.png" id="img17" class="image">
+            <span class="imageHeading">
+                Horror Podcast Hindi 
+            </span>
+            <span class="imageDescription">
+                RJ M Praveen
+            </span>
+        </div>
+        <div id="eighteenth" class="songDiv">
+            <img src="18.png" id="img18" class="image">
+            <span class="imageHeading">
+                Vision 100 Katha 
+            </span>
+            <span class="imageDescription">
+                Vision 100 Katha
+            </span>
+        </div>
+        <div id="nineteenth" class="songDiv">
+            <img src="19.png" id="img19" class="image">
+            <span class="imageHeading">
+                Vocal Oli 
+            </span>
+            <span class="imageDescription">
+                vijay varadharaj
+            </span>
+        </div>
+        <div id="twentieth" class="songDiv">
+            <img src="20.png" id="img20" class="image">
+            <span class="imageHeading">
+                El Cartel de La Mega
+            </span>
+            <span class="imageDescription">
+                RCN Radio
+            </span>
+        </div>
+    </div>
+    <footer>
+        <ul class="list" id="list1">
+            <li class="topFoot" id="company">
+                Company
+            </li>
+            <li class="bottomFoot">
+                <a href="https://www.spotify.com/in-en/about-us/contact/" class="bottomFoot">About</a>
+            </li>
+            <li class="bottomFoot">
+                <a href="https://www.lifeatspotify.com/" class="bottomFoot">Jobs</a>
+            </li>
+            <li class="bottomFoot">
+                <a href="https://newsroom.spotify.com/" class="bottomFoot">For the record</a>
+            </li>
+        </ul>
+        <ul class="list" id="list2">
+            <li class="topFoot" id="communities">
+                Communities
+            </li>
+            <li class="bottomFoot">
+                <a href="https://artists.spotify.com/" class="bottomFoot">For Artists</a>
+            </li>
+            <li class="bottomFoot">
+                <a href="https://developer.spotify.com/" class="bottomFoot">Developers</a>
+            </li>
+            <li class="bottomFoot">
+                <a href="https://ads.spotify.com/" class="bottomFoot">Advertising</a>
+            </li>
+            <li class="bottomFoot">
+                <a href="https://investors.spotify.com/" class="bottomFoot">Investors</a>
+            </li>
+            <li class="bottomFoot">
+                <a href="https://spotifyforvendors.com/" class="bottomFoot">Vendors</a>
+            </li>
+        </ul>
+        <ul class="list" id="list3">
+            <li class="topFoot" id="useful">
+                Useful links
+            </li>
+            <li class="bottomFoot">
+                <a href="https://support.spotify.com/" class="bottomFoot">Support</a>
+            </li>
+            <li class="bottomFoot">
+                <a href="https://www.spotify.com/in-en/download/" class="bottomFoot">Free Mobile App</a>
+            </li>
+        </ul>
+        <a href="https://www.instagram.com/spotify/" class="footerIcons" id="instagramAnchor" target="_blank">
+            <i class="fa-brands fa-instagram instagramIcon"></i>
+        </a>
+        <a href="https://twitter.com/spotify" class="footerIcons" id="twitterAnchor" target="_blank">
+            <i class="fa-brands fa-twitter twitterIcon"></i>
+        </a>
+        <a href="https://www.facebook.com/Spotify" class="footerIcons" id="facebookAnchor" target="_blank">
+            <i class="fa-brands fa-facebook facebookIcon"></i>
+        </a>
+        <hr>
+        <div id="bottomLinks">
+            <a class="bottomAnchor" href="https://www.spotify.com/in-en/legal/">Legal</a>
+            <a class="bottomAnchor" href="https://www.spotify.com/in-en/safetyandprivacy/">Safety & Privacy Center</a>
+            <a class="bottomAnchor" href="https://www.spotify.com/in-en/legal/privacy-policy/">Privacy Policy</a>
+            <a class="bottomAnchor" href="https://www.spotify.com/in-en/legal/cookies-policy/">Cookies</a>
+            <a class="bottomAnchor" href="https://www.spotify.com/in-en/legal/privacy-policy/#s3">About Ads</a>
+            <a class="bottomAnchor" href="https://www.spotify.com/in-en/accessibility/">Accessibility</a>
+            <span id="AB">
+                <i class="fa-regular fa-copyright"></i>
+                2024 Spotify AB
+            </span>
+        </div>
+    </footer>
+</body>
+</html>
