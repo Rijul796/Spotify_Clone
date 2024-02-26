@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Spotify-Web</title>
-    <link rel="icon" href="spotifyIcon.ico" type="image/png">
+    <title>Spotify - Web Player: Music for everyone</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="icon" href="/FEE/CSS/spotifyClone/spotifyIcon.ico" type="image/png">
     <style>
-        body{
+         body{
             background-color: black;
             font-family: sans-serif;
             overflow-x: hidden;
@@ -126,12 +126,13 @@
             height: 32px;
             border-radius: 20px;
             border: none;
+            background-color: #343333;
+            color: white;
         }
         #music{
             width: 62.56px;
             height: 32px;
-            background-color: #292727;
-            color: white;
+
             border: none;
             border-radius: 20px;
             font-size: 14px;
@@ -252,7 +253,7 @@
                 color: white;
             }
         }
-        #music:hover{
+        #all:hover{
             background-color: #3a3a3a;
         }
         #pod:hover{
@@ -264,13 +265,12 @@
             top: 110px;
             left: 373px;
             width: 1108px;
-            height: 1434.3px;
+            height: 1334.3px;
             padding-right: 10px;
             background-color: #121212;
             display: grid;
             grid-template-columns: 211.96px 211.96px 211.96px 211.96px 211.96px;
             grid-template-rows: 31.2px 292.77px 31.2px 292.77px 31.2px 292.77px 31.2px 292.77px;
-            row-gap: 20px;
             column-gap: 15px;
         }
         #try{
@@ -618,17 +618,16 @@
     </div>
     <div id="nav">
         <div class="btns">
-            <button id="angle"> <i class="fa-solid fa-chevron-left icn"></i></button>
-            <a href="Musicpage/Musicpage.html"><button id="angle"> <i class="fa-solid fa-chevron-right  icn"></i></button></a>     
+            <a href="/Spotify_Clone/Spotify/index.html"><button id="angle"> <i class="fa-solid fa-chevron-left icn"></i></button></a> 
+            <button id="angle"> <i class="fa-solid fa-chevron-right  icn"></i></button>   
             <button id="user">R</button>
             <button id="bell"> <i class="fa-regular fa-bell icn"></i></button>
             <button id="down"> <i class="fa-regular fa-circle-down icnd"></i> Install App</button> 
             <button id="premium">Explore Premium</button>
         </div>
         <div id="new_btns">
-            <button id="all">All</button>
-            <a href="Musicpage/Musicpage.html"><button id="music">Music</button></a>
-            <button id="pod">Podcasts</button>
+            <a href="/Spotify_Clone/Spotify/index.html"> <button id="all">All</button></a>
+            <button id="music">Music</button><button id="pod">Podcasts</button>
         </div>
     </div>
     <div id="lib">
@@ -650,104 +649,88 @@
         </div>
     </div>
     <div id="songs">
-        <button class="topper" id="try">
-            Try something else
-        </button>
-        <button class="showAll" id="show1">
-            Show all
-        </button>
         <div id="first" class="songDiv">
             <i class="fa-solid fa-play"></i>
             <img src="1.png" id="img1" class="image">
             <span class="imageHeading">
-                Hot Hits Hindi
+                Bollywood Mush
             </span>
             <span class="imageDescription">
-                Hottest Hindi music served <br>
-                here. Cover - Animal
+                Let these songs be the background
+                score to your...
             </span>
         </div>
         <div id="second" class="songDiv">
             <i class="fa-solid fa-play"></i>
             <img src="2.png" id="img2" class="image">
             <span class="imageHeading">
-                All Out 00's Hindi
+                Indie Indie
             </span>
             <span class="imageDescription">
-                Bollywood songs that ruled <br>
-                hearts in the Y2K decade.
+                Best of the Indian Indie
+                scene. Cover - Anuv Jain
             </span>
         </div>
         <div id="third" class="songDiv">
             <i class="fa-solid fa-play"></i>
             <img src="3.png" id="img3" class="image">
             <span class="imageHeading">
-                Hot Hits Punjabi
+                Anuv Jain Radio
             </span>
             <span class="imageDescription">
-                Catch the hottest Punjabi <br>
-                tracks with Karan Aujla.
+                With Prateek Kuhad, Zaeden <br>
+                Dream Note and more.
             </span>
         </div>
         <div id="fourth" class="songDiv">
             <i class="fa-solid fa-play"></i>
             <img src="4.png" id="img4" class="image">
             <span class="imageHeading">
-                00's Love Hits
+                Tollywood Pearls
             </span>
             <span class="imageDescription">
-                Fall in love with 00's <br>
-                Bollywood like never before
+                The finest set of Telugu 
+                music from the past 10 years
             </span>
         </div>
         <div id="fifth" class="songDiv">
             <i class="fa-solid fa-play"></i>
             <img src="5.png" id="img5" class="image">
             <span class="imageHeading">
-                Top 50 - Global
+                Bollywood Central
             </span>
             <span class="imageDescription">
-                Your daily update of the<br>
-                most played tracks right now
+                Bollywood Central, Jab baje toh sidha dil ke pass ❤️.
             </span>
         </div>
-        <button class="topper" id="featured">
-            Featured Charts
-        </button>
-        <button class="showAll" id="show2">
-            Show all
-        </button>
         <div id="sixth" class="songDiv">
             <i class="fa-solid fa-play"></i>
             <img src="6.png" id="img6" class="image">
             <span class="imageHeading">
-                Top Songs - Global
+                Yo Yo Honey Singh...
             </span>
             <span class="imageDescription">
-                Your weekly update of the<br>
-                most played tracks
+                With Imran Khan, Badshah, Mika Singh and more.
             </span>
         </div>
         <div id="seventh" class="songDiv">
             <i class="fa-solid fa-play"></i>
             <img src="7.png" id="img7" class="image">
             <span class="imageHeading">
-                Top Songs - India
+                Kollywood Cream
             </span>
             <span class="imageDescription">
-                Your weekly update of the<br>
-                most played tracks
+                Finest collection of Tamil Music from the past 10 years
             </span>
         </div>
         <div id="eigth" class="songDiv">
             <i class="fa-solid fa-play"></i>
             <img src="8.png" id="img8" class="image">
             <span class="imageHeading">
-                Top 50 - Global
+                Arijit Singh Radio
             </span>
             <span class="imageDescription">
-                Your daily update of the<br>
-                most played tracks right now
+                With Neha Kakkar, Pritam, KK and more
             </span>
         </div>
         <div id="ninth" class="songDiv">
@@ -765,113 +748,112 @@
             <i class="fa-solid fa-play"></i>
             <img src="10.png" id="img10" class="image">
             <span class="imageHeading">
-                Viral 50 - Global
+                RADAR India
             </span>
             <span class="imageDescription">
-                Your daily update of the<br>
-                most viral tracks right now
+                Most exciting artists from the Indian Indie scene.
             </span>
         </div>
-        <button class="topper" id="original">
-            Spotify original podcasts
-        </button>
-        <button class="showAll" id="show3">
-            Show all
-        </button>
         <div id="eleventh" class="songDiv">
+            <i class="fa-solid fa-play"></i>
             <img src="11.png" id="img11" class="image">
             <span class="imageHeading">
-                Aa Modati Alajadi
+                This is Taylor Swift
             </span>
             <span class="imageDescription">
-                Spotify Studios
+                The essential tracks, all in one playlist.
             </span>
         </div>
         <div id="twelfth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
             <img src="12.png" id="img12" class="image">
             <span class="imageHeading">
-                Best Love Stories
+                RAP 91
             </span>
             <span class="imageDescription">
-                Spotify Studios
+                India's Rap Scene. <br>
+                Cover - MC Square 
             </span>
         </div>
         <div id="thirteenth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
             <img src="13.png" id="img13" class="image">
             <span class="imageHeading">
-                The Horror Show
+                00's Love Hits
             </span>
             <span class="imageDescription">
-                TMV Studios
+                Fall in love with 00's <br>
+                Bollywood like never before
             </span>
         </div>
         <div id="fourteenth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
             <img src="14.png" id="img14" class="image">
             <span class="imageHeading">
-                Pretkotha
+                Top Songs - India
             </span>
             <span class="imageDescription">
-                Gourav Tapadar
+                Your weekly update of the most played tracks right now.
             </span>
         </div>
         <div id="fifteenth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
             <img src="15.png" id="img15" class="image">
             <span class="imageHeading">
-                Naallanna Murukku 
+                Mega Hit Mix
             </span>
             <span class="imageDescription">
-                Spotify Studios
+                A mega mix of 75 favorites from the last few years!
             </span>
         </div>
-        <button class="topper" id="toTry">
-            Shows to try
-        </button>
-        <button class="showAll" id="show4">
-            Show all
-        </button>
         <div id="sixteenth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
             <img src="16.png" id="img16" class="image">
             <span class="imageHeading">
-                Unreleased Grant
+                I-Pop Superhits
             </span>
             <span class="imageDescription">
-                Cinnamongurl
+                Biggest Hits from your favourite pop stars 
             </span>
         </div>
         <div id="seventeenth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
             <img src="17.png" id="img17" class="image">
             <span class="imageHeading">
-                Horror Podcast Hindi 
+                New Music Friday India
             </span>
             <span class="imageDescription">
-                RJ M Praveen
+                Handpicked fresh new international music from this...
             </span>
         </div>
         <div id="eighteenth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
             <img src="18.png" id="img18" class="image">
             <span class="imageHeading">
-                Vision 100 Katha 
+                KK Radio
             </span>
             <span class="imageDescription">
-                Vision 100 Katha
+                With Ankit Tiwari, Mohit Chauhan, Javed Ali and more
             </span>
         </div>
         <div id="nineteenth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
             <img src="19.png" id="img19" class="image">
             <span class="imageHeading">
-                Vocal Oli 
+                Viral - 50 Global
             </span>
             <span class="imageDescription">
-                vijay varadharaj
+                Your daily update of the most viral tracks right now.
             </span>
         </div>
         <div id="twentieth" class="songDiv">
+            <i class="fa-solid fa-play"></i>
             <img src="20.png" id="img20" class="image">
             <span class="imageHeading">
-                El Cartel de La Mega
+                Mollywood Gold
             </span>
             <span class="imageDescription">
-                RCN Radio
+                The finest set of Malayalam music from the past 10 years.
             </span>
         </div>
     </div>
