@@ -42,13 +42,15 @@
             place-items: center;
         }
 
-        input[type="text"] {
+        input[type="text"],
+        input[type="password"] {
             border: 1px solid rgb(142, 140, 140);
-            width: 85%; 
+            width: 85%;
             padding: 12px 20px;
             border-radius: 5px;
             color: #eaeaea;
             background-color: #131313;
+            margin-bottom: 10px; /* Added margin-bottom for spacing */
         }
 
         button {
@@ -56,30 +58,27 @@
             color: white;
             padding: 15px 32px;
             text-align: center;
-            display: block; 
-            width: 100%; 
+            display: block;
+            width: 100%;
             font-size: 16px;
             font-weight: bold;
-            margin: 10px 0; 
+            margin: 10px 0;
             border: none;
             cursor: pointer;
-            border-radius: 25px; 
+            border-radius: 25px;
         }
 
-        button[type="button"]
-        {
+        button[type="button"] {
             background-color: #131313;
             border: 1px solid rgb(142, 140, 140);
-
         }
 
         footer {
             text-align: center;
             color: #ccc;
-            font-size: 12px; /* Adjusted font size */
-
-            padding: 20px; /* Adjusted padding */
-            margin-top: 20px; /* Added margin */
+            font-size: 12px;
+            padding: 20px;
+            margin-top: 20px;
         }
 
         footer a {
@@ -90,6 +89,7 @@
         footer a:hover {
             color: #fff;
         }
+
         form {
             text-align: left;
             line-height: 40px;
@@ -106,14 +106,17 @@
             border-image: initial;
             margin: 3px;
         }
-        p{
+
+        p {
             display: inline;
         }
-        #or{
+
+        #or {
             text-align: center;
             margin: 20px 0;
         }
-        #last{
+
+        #last {
             width: 100%;
             border-right: none;
             border-bottom: none;
@@ -121,24 +124,29 @@
             border-image: initial;
             border-top: 1px solid rgb(41, 41, 41);
         }
-        h1{
+
+        h1 {
             font-size: 40px;
-            font-weight: bolde;
+            font-weight: bold;
             color: white;
         }
-        #ph{
+
+        #ph {
             text-decoration: underline;
             color: #1fdf64;
             font-size: small;
         }
-        a{
+
+        a {
             color: white;
         }
-        #next{
+
+        #next {
             color: #131313;
             font-weight: bold;
         }
-        .images{
+
+        .images {
             float: inline-start;
             vertical-align: middle;
             width: 20px;
@@ -146,27 +154,57 @@
         }
     </style>
 </head>
+
 <body>
     <nav><img src="spotify_img.png" id="nav_icon">Spotify</nav>
     <div class="container">
-        <form>
+        <form id="signupForm">
             <h1>Sign up to start listening</h1>
             <label for="email">Email Address</label>
-            <input type="text" id="email" placeholder="name@domain.com" required>
-            <br>
-            <label for="phone"><a href="Phone_number.html" id="ph" >Use phone number instead</a></label><br>
+            <input type="text" id="email" placeholder="name@domain.com" required><br>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter Username" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" required><br>
+            <label for="phone"><a href="Phone_number.html" id="ph">Use phone number instead</a></label><br>
             <button id="next">Next</button>
-            <div id="or"><hr><p>or</p><hr></div>
+            <div id="or">
+                <hr><p>or</p><hr>
+            </div>
             <button type="button"><img src="google.png" class="images">Sign up with Google</button>
             <button type="button"><img src="facebook.png" class="images">Sign up with Facebook</button>
             <button type="button"><img src="apple.png" class="images">Sign up with Apple</button>
             <hr id="last">
-            <p>Already have an account? <a href="Sign_in.html">Log in here.</a></p>
+            <p>Already have an account? <a href="login.html">Log in here.</a></p>
         </form>
     </div>
     <footer>
         This site is protected by reCAPTCHA and the <br>Google <u><a href="https://policies.google.com/terms">
         Privacy Policy</a></u> and <u><a href="https://policies.google.com/terms"> Terms of Service</a></u> apply.
     </footer>
+    <script>
+        // Function to handle form submission
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Prevent default form submission
+            // Fetch user input values
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Store user data in localStorage
+            var userData = {
+                username: username,
+                password: password
+            };
+            localStorage.setItem('userData', JSON.stringify(userData));
+            
+            // Redirect the user to the login page
+            window.location.href = 'Sign_in.html';
+        }
+
+        // Add event listener to the form
+        var form = document.getElementById('signupForm');
+        form.addEventListener('submit', handleFormSubmit);
+    </script>
 </body>
+
 </html>
