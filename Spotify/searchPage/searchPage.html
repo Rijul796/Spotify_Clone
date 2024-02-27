@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="icon" type="image/x-icon" href="/Spotify/Homepage/spotifyIcon.ico">
+    <style>
+        body{
+            background-color: black;
+            font-family: sans-serif;
+            overflow-x: hidden;
+        }
+        #home{
+            position: fixed;
+            min-width: 360px;
+            height: 112px;
+            line-height: 20px;
+            color: whitesmoke;
+            background-color:#121212;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+        .hm{
+            font-size: 16px;
+            padding-left: 50px;
+            cursor: pointer;
+        }
+        #Search{
+            padding-top: 8px;
+            padding-left: 55px;
+        }
+        .ic{
+            color:whitesmoke;
+            margin-left: -30px;
+            padding-right: 20px;
+            font-size: 24px;
+        }
+        #Home{
+            color: rgba(255,255,255,0.6);
+        }
+        #homeIcon{
+            color: rgba(255,255,255,0.6);
+        }
+        #lib{
+            position: fixed;
+            background-color:#121212;
+            display: inline-grid;
+            margin-top: 122px;
+            margin-left: 10px;
+            color: white;
+            min-width: 360px;
+            border-radius: 10px;
+            font-size: 16px;
+            left:0;
+            min-height: 450px;
+            padding-top: 20px;
+        }
+        .libr{
+            background-color: #343333;
+            margin-left: 10px;
+            margin-right: 10px;
+            border-radius: 10px;
+            height: 140px;
+            font-weight: 500px;
+        }
+        .plib{
+            font-size: 16px;
+            color: white;
+            padding-left: 20px;
+        }
+        #lib_icn{
+            display: inline;
+
+        }
+        .libp{
+            display: inline;
+            padding-right: 110px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #121212;
+            color: rgba(255,255,255,0.6);;
+            border: none;
+        }
+        .lbc{
+            margin-left: 18px;
+            margin-right: 10px;
+        }
+        .pls{
+            margin-right: 20px;
+        }
+        .lbtn{
+            margin-left: 20px;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 25px;
+            border: none;
+        }
+        #plusButton{
+            border: none;
+            background-color: #121212;
+            color: rgba(255,255,255,0.6);;
+        }
+        #arrowButton{
+            border: none;
+            background-color: #121212;
+            color: rgba(255,255,255,0.6);
+        }
+        #arrowButton:hover{
+            color: white;
+        }
+        #plusButton:hover{
+            color: white;
+        }
+        .libp:hover{
+            color: white;
+        }
+        .lbtn:hover{
+            transform: scale(1.05);
+        }
+        #premium:hover{
+            transform: scale(1.05);
+        }
+        #down:hover{
+            transform: scale(1.05);
+        }
+        #bell:hover{
+            transform: scale(1.05);
+        }
+        #user:hover{
+            transform: scale(1.05);
+        }
+        button{
+            cursor: pointer;
+        }
+        #topbar{
+            position: fixed;
+            top: 0px;
+            margin-bottom: 5px;
+            width: 1536px;
+            height: 8px;
+            background-color: black;
+            z-index: 3;
+        }
+        #nav{
+            position: fixed;
+            right: 0px;
+            left:380px;
+            margin-right: 5px;
+            background-color:#121212;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            min-width: 500px;
+        }
+        #angle{
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background-color: black;
+            color: white;
+            cursor: not-allowed;
+        }
+        #bell{
+            float: right;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        #user{
+            float: right;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: greenyellow;
+            border: 3px solid black;
+            
+        }
+        #down{
+            float: right;
+            width: 118.58px;
+            height: 32px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-right: 16px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            border-radius: 20px;
+            border: none;
+            background-color: black;
+            margin-right: 10px;
+        }
+        .icnd{
+            font-size: 16px;
+        }
+        .btns{
+            height: 48px;
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            font-size: 14px;
+        }
+        #searchDiv{
+            position: absolute;
+            display: inline;
+            left: 7%;
+            top: 4%;
+            padding: 6px 40px;
+        }
+        #searchIcon2{
+            position: absolute;
+            top: 36%;
+            color: rgba(255,255,255,0.8);
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        #searchBar{
+            background-color: #343333;
+            border: none;
+            width: 314px;
+            height: 40px;
+            padding: 6px 36px;
+            border-radius: 100px;
+            font-weight: bold;
+            color: white;
+        }
+        #main{
+            background-color: #121212;
+            position: absolute;
+            left: 380px;
+            top: 75px;
+            display: grid;
+            grid-template-columns: repeat(5,185px);
+            grid-template-rows: 50px 185px 185px 185px 185px 185px;
+            row-gap: 40px;
+            column-gap: 40px;
+            width: 100%;
+            height: 1250px;
+        }
+        .musicImage{
+            width: 200px;
+            padding-left: 20px;
+            cursor: pointer;
+        }
+        #heading2{
+            color: white;
+            grid-column: 1/6;
+            grid-row: 1/2;
+            padding-left: 20px;
+        }
+        #img9{
+            height: 200px;
+        }
+        footer{
+            position: relative;
+            top: 1300px;
+            left: 372.5px;
+            width: 100%;
+            height: 450px;
+            background-color: #121212;
+            padding: 8px 32px 40px;
+        }
+        .topFoot{
+            color: white;
+            font-weight: bold;
+        }
+        .bottomFoot{
+            color: rgba(255,255,255,0.6);
+            margin-top: 10px;
+        }
+        .bottomFoot:hover{
+            color: white;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .list{
+            list-style-type: none;
+            display: inline-block;
+        }
+        #list1{
+            position: absolute;
+            top: 50px;
+        }
+        #list2{
+            position: absolute;
+            top: 50px;
+            left: 250px;
+        }
+        #list3{
+            position: absolute;
+            top: 50px;
+            left: 500px;
+        }
+        .footerIcons{
+            cursor: pointer;
+            background-color: #2a2929;
+            position: absolute;
+            border-radius: 100%;
+            border: none;
+            height: 40px;
+            width: 40px;
+            color: white;
+            font-size: 24px;
+        }
+        .footerIcons:hover{
+            background-color: rgba(255,255,255,0.4);
+        }
+        .instagramIcon{
+            padding-left: 9px;
+            padding-top: 8px;
+        }
+        #instagramAnchor{
+            top: 60px;
+            left: 950px;
+        }
+        .twitterIcon{
+            padding-left: 8px;
+            padding-top: 8px;
+        }
+        #twitterAnchor{
+            top: 60px;
+            left: 1010px;
+        }
+        .facebookIcon{
+            padding-left: 8px; 
+            padding-top: 8px;
+        }
+        #facebookAnchor{
+            top: 60px;
+            left: 1070px;
+        }
+        hr{
+            border: 1px solid rgba(255,255,255,0.1);
+            position: absolute;
+            width: 1063px;
+            top: 280px;
+        }
+        #bottomLinks{
+            display: inline-block;
+            position: absolute;
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            top: 350px;
+        }
+        .bottomAnchor{
+            margin-right: 16px;
+        }
+        .bottomAnchor:hover{
+            color: white;
+            cursor: pointer;
+        }
+        #AB{
+            font-size: 14px;
+            margin-left: 370px;
+        }
+        a{
+            text-decoration: none;
+            color: rgba(255,255,255,0.6);
+        }
+        ::-webkit-scrollbar{
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track{
+            background: black; 
+        }
+        ::-webkit-scrollbar-thumb{
+            background: rgba(255,255,255,0.4); 
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background: rgba(255,255,255,0.6); 
+        }
+        #playingViewIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.2);
+            font-size: 7px;
+            left: 1273px;
+            top: 32px;
+            cursor: pointer;
+            opacity: 1;
+            background-color: black;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 0%;
+            cursor: not-allowed;
+            padding-top: 4px;
+            padding-left: 2.5px;
+            padding-right: 2px;
+            padding-bottom: 3px;
+        }
+        #playingViewIcon:hover{
+            transform: scale(1);
+        }
+        #songBar{
+            position: absolute;
+            color: white;
+            background-color: rgba(255,255,255,0.3);
+            width: 550px;
+            height: 4px;
+            left: 475px;
+            top: 55px;
+            border: none;
+        }
+        .playBar{
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 84px;
+            background-color: black;
+            min-width: 500px;
+            color: white;
+            z-index: 1;
+        }
+        #shuffleIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.2);
+            font-size: 20px;
+            left: 665px;
+            top: 20px;
+        }
+        #backwardIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.3);
+            font-size: 20px;
+            left: 700px;
+            top: 20px;
+            cursor: pointer;
+        }
+        #pauseIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.3);
+            font-size: 30px;
+            left: 730px;
+            top: 15px;
+            cursor: pointer;
+        }
+        #pauseIcon:hover{
+            transform: scale(1.1);
+        }
+        #forwardIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.3);
+            font-size: 20px;
+            left: 780px;
+            top: 20px;
+            cursor: pointer;
+        }
+        #repeatIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.2);
+            font-size: 20px;
+            left: 810px;
+            top: 20px;
+            cursor: pointer;
+        }
+        #queueIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.7);
+            font-size: 20px;
+            left: 1300px;
+            top: 32px;
+            cursor: pointer;
+        }
+        #queueIcon:hover{
+            color: white;
+        }
+        #connectIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.7);
+            font-size: 20px;
+            left: 1330px;
+            top: 32px;
+            cursor: pointer;
+        }
+        #connectIcon:hover{
+            color: white;
+        }
+        #speakerIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.7);
+            font-size: 20px;
+            left: 1360px;
+            top: 32px;
+            cursor: pointer;
+        }
+        #speakerIcon:hover{
+            color: white;
+        }
+        #volumeBar{
+            position: absolute;
+            left: 1390px;
+            top: 38px;
+            width: 93px;
+            padding: auto;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            background-color: white;  
+            height: 4px;
+        }
+        input[type="range"]::-webkit-slider-runnable-track:hover {
+            background-color: rgb(29,185,84);
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+        }
+        input[type="range"] {
+            appearance: none;
+            background: transparent;
+        }
+        #fullScreenIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.2);
+            font-size: 14px;
+            left: 1500px;
+            top: 34px;
+            cursor: not-allowed;
+        }
+        #text1{
+            position: absolute;
+            top: 56.5px;
+            left: 455px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+        }
+        #text2{
+            position: absolute;
+            top: 56.5px;
+            left: 1030px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+        }
+        #Home:hover{
+            color: white;
+            #homeIcon{
+                color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="topbar"></div>
+    <div id="home">
+        <a href="/Spotify/Homepage/index.html"> <p class="hm" id="Home"><i class="fa-solid fa-house ic"id="homeIcon"></i> Home</p></a>
+        <a href="/Spotify/searchPage/searchPage.html"><p class="hm" id="Search"><i class="fa-solid fa-magnifying-glass ic"></i>Search</p></a> 
+    </div>
+    <div id="lib">
+        <div id="lib_icn">
+        <button class="libp"><i class="fa-solid fa-bars lbc"></i>Your Library</button>
+        <button id="plusButton"><i class="fa-solid fa-plus pls"></i></button>
+        <button id="arrowButton"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        <div class="libr">
+            <p class="plib"><b>Create your first playlist</b></p>
+            <p class="plib">it's easy,we'll help you</p>
+            <button class="lbtn">Create playlist</button>
+        </div>
+        <div class="libr">
+           <p class="plib"><b>Let's find some podcasts to follow</b></p>
+           <p class="plib">we'll keep you updated on new episodes</p>
+           <button class="lbtn">Browse podcasts</button>
+        </div>
+    </div>
+    <div id="nav">
+        <div class="btns">
+            <button id="angle"> <i class="fa-solid fa-chevron-left icn"></i></button>
+            <button id="angle"> <i class="fa-solid fa-chevron-right  icn"></i></button>
+            <button id="user">R</button>
+            <button id="bell"> <i class="fa-regular fa-bell icn"></i></button>
+            <button id="down"> <i class="fa-regular fa-circle-down icnd"></i> Install App</button>
+            <div id="searchDiv">
+                <i class="fa-solid fa-magnifying-glass" id="searchIcon2"></i>
+                <input type="text" placeholder="What do you want to play?" id="searchBar">
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <h2 id="heading2">
+            Browse All
+        </h2>
+        <img src="1.png" id="img1" class="musicImage">
+        <img src="2.png" id="img2" class="musicImage">
+        <img src="3.png" id="img3" class="musicImage">
+        <img src="4.png" id="img4" class="musicImage">
+        <img src="5.png" id="img5" class="musicImage">
+        <img src="6.png" id="img6" class="musicImage">
+        <img src="7.png" id="img7" class="musicImage">
+        <img src="8.png" id="img8" class="musicImage">
+        <img src="9.png" id="img9" class="musicImage">
+        <img src="10.png" id="img10" class="musicImage">
+        <img src="11.png" id="img11" class="musicImage">
+        <img src="12.png" id="img12" class="musicImage">
+        <img src="13.png" id="img13" class="musicImage">
+        <img src="14.png" id="img14" class="musicImage">
+        <img src="15.png" id="img15" class="musicImage">
+        <img src="16.png" id="img16" class="musicImage">
+        <img src="17.png" id="img17" class="musicImage">
+        <img src="18.png" id="img18" class="musicImage">
+        <img src="19.png" id="img19" class="musicImage">
+        <img src="20.png" id="img20" class="musicImage">
+        <img src="21.png" id="img21" class="musicImage">
+        <img src="22.png" id="img22" class="musicImage">
+        <img src="23.png" id="img23" class="musicImage">
+        <img src="24.png" id="img24" class="musicImage">
+        <img src="25.png" id="img25" class="musicImage">
+    </div>
+    <footer>
+        <ul class="list" id="list1">
+            <li class="topFoot" id="company">
+                Company
+            </li>
+            <li class="bottomFoot">
+                <a href="https://www.spotify.com/in-en/about-us/contact/" class="bottomFoot">About</a>
+            </li>
+            <li class="bottomFoot">
+                <a href="https://www.lifeatspotify.com/" class="bottomFoot">Jobs</a>
+            </li>
+            <li class="bottomFoot">
+                <a href="https://newsroom.spotify.com/" class="bottomFoot">For the record</a>
+            </li>
+        </ul>
+        <ul class="list" id="list2">
+            <li class="topFoot" id="communities">
+                Communities
+            </li>
+            <li class="bottomFoot">
+                <a href="https://artists.spotify.com/" class="bottomFoot">For Artists</a>
+            </li>
+            <li class="bottomFoot">
+                <a href="https://developer.spotify.com/" class="bottomFoot">Developers</a>
+            </li>
+            <li class="bottomFoot">
+                <a href="https://ads.spotify.com/" class="bottomFoot">Advertising</a>
+            </li>
+            <li class="bottomFoot">
+                <a href="https://investors.spotify.com/" class="bottomFoot">Investors</a>
+            </li>
+            <li class="bottomFoot">
+                <a href="https://spotifyforvendors.com/" class="bottomFoot">Vendors</a>
+            </li>
+        </ul>
+        <ul class="list" id="list3">
+            <li class="topFoot" id="useful">
+                Useful links
+            </li>
+            <li class="bottomFoot">
+                <a href="https://support.spotify.com/" class="bottomFoot">Support</a>
+            </li>
+            <li class="bottomFoot">
+                <a href="https://www.spotify.com/in-en/download/" class="bottomFoot">Free Mobile App</a>
+            </li>
+        </ul>
+        <a href="https://www.instagram.com/spotify/" class="footerIcons" id="instagramAnchor" target="_blank">
+            <i class="fa-brands fa-instagram instagramIcon"></i>
+        </a>
+        <a href="https://twitter.com/spotify" class="footerIcons" id="twitterAnchor" target="_blank">
+            <i class="fa-brands fa-twitter twitterIcon"></i>
+        </a>
+        <a href="https://www.facebook.com/Spotify" class="footerIcons" id="facebookAnchor" target="_blank">
+            <i class="fa-brands fa-facebook facebookIcon"></i>
+        </a>
+        <hr>
+        <div id="bottomLinks">
+            <a class="bottomAnchor" href="https://www.spotify.com/in-en/legal/">Legal</a>
+            <a class="bottomAnchor" href="https://www.spotify.com/in-en/safetyandprivacy/">Safety & Privacy Center</a>
+            <a class="bottomAnchor" href="https://www.spotify.com/in-en/legal/privacy-policy/">Privacy Policy</a>
+            <a class="bottomAnchor" href="https://www.spotify.com/in-en/legal/cookies-policy/">Cookies</a>
+            <a class="bottomAnchor" href="https://www.spotify.com/in-en/legal/privacy-policy/#s3">About Ads</a>
+            <a class="bottomAnchor" href="https://www.spotify.com/in-en/accessibility/">Accessibility</a>
+            <span id="AB">
+                <i class="fa-regular fa-copyright"></i>
+                2024 Spotify AB
+            </span>
+        </div>
+    </footer>
+    <div class="playBar">
+        <i class="fa-solid fa-shuffle" id="shuffleIcon"></i>
+        <i class="fa-solid fa-backward-step" id="backwardIcon"></i>
+        <i class="fa-solid fa-circle-pause" id="pauseIcon"></i>
+        <i class="fa-solid fa-forward-step" id="forwardIcon"></i>
+        <i class="fa-solid fa-repeat" id="repeatIcon"></i>
+        <i class="fa-solid fa-play" id="playingViewIcon"></i>
+        <i class="fa-solid fa-bars-staggered" id="queueIcon"></i>
+        <i class="fa-solid fa-computer" id="connectIcon"></i>
+        <i class="fa-solid fa-volume-high" id="speakerIcon"></i>
+        <input type="range" id="volumeBar">
+        <i class="fa-solid fa-up-right-and-down-left-from-center" id="fullScreenIcon"></i>
+        <hr id="songBar">
+        <span id="text1">-:--</span>
+        <span id="text2">-:--</span>
+    </div>
+</body>
+</html>
