@@ -608,6 +608,165 @@
             background-color: black;
             z-index: 3;
         }
+        #playingViewIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.2);
+            font-size: 7px;
+            left: 1273px;
+            top: 32px;
+            cursor: pointer;
+            opacity: 1;
+            background-color: black;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 0%;
+            cursor: not-allowed;
+            padding-top: 4px;
+            padding-left: 2.5px;
+            padding-right: 2px;
+            padding-bottom: 3px;
+        }
+        #playingViewIcon:hover{
+            transform: scale(1);
+        }
+        #songBar{
+            position: absolute;
+            color: white;
+            background-color: rgba(255,255,255,0.3);
+            width: 550px;
+            height: 4px;
+            left: 475px;
+            top: 55px;
+            border: none;
+        }
+        .playBar{
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 84px;
+            background-color: black;
+            min-width: 500px;
+            color: white;
+            z-index: 1;
+        }
+        #shuffleIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.2);
+            font-size: 20px;
+            left: 665px;
+            top: 20px;
+        }
+        #backwardIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.3);
+            font-size: 20px;
+            left: 700px;
+            top: 20px;
+            cursor: pointer;
+        }
+        #pauseIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.3);
+            font-size: 30px;
+            left: 730px;
+            top: 15px;
+            cursor: pointer;
+        }
+        #pauseIcon:hover{
+            transform: scale(1.1);
+        }
+        #forwardIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.3);
+            font-size: 20px;
+            left: 780px;
+            top: 20px;
+            cursor: pointer;
+        }
+        #repeatIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.2);
+            font-size: 20px;
+            left: 810px;
+            top: 20px;
+            cursor: pointer;
+        }
+        #queueIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.7);
+            font-size: 20px;
+            left: 1300px;
+            top: 32px;
+            cursor: pointer;
+        }
+        #queueIcon:hover{
+            color: white;
+        }
+        #connectIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.7);
+            font-size: 20px;
+            left: 1330px;
+            top: 32px;
+            cursor: pointer;
+        }
+        #connectIcon:hover{
+            color: white;
+        }
+        #speakerIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.7);
+            font-size: 20px;
+            left: 1360px;
+            top: 32px;
+            cursor: pointer;
+        }
+        #speakerIcon:hover{
+            color: white;
+        }
+        #volumeBar{
+            position: absolute;
+            left: 1390px;
+            top: 38px;
+            width: 93px;
+            padding: auto;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            background-color: white;  
+            height: 4px;
+        }
+        input[type="range"]::-webkit-slider-runnable-track:hover {
+            background-color: rgb(29,185,84);
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+        }
+        input[type="range"] {
+            appearance: none;
+            background: transparent;
+        }
+        #fullScreenIcon{
+            position: absolute;
+            color: rgba(255,255,255,0.2);
+            font-size: 14px;
+            left: 1500px;
+            top: 34px;
+            cursor: not-allowed;
+        }
+        #text1{
+            position: absolute;
+            top: 56.5px;
+            left: 455px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+        }
+        #text2{
+            position: absolute;
+            top: 56.5px;
+            left: 1030px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+        }
     </style>
 </head>
 <body>
@@ -944,5 +1103,21 @@
             </span>
         </div>
     </footer>
+    <div class="playBar">
+        <i class="fa-solid fa-shuffle" id="shuffleIcon"></i>
+        <i class="fa-solid fa-backward-step" id="backwardIcon"></i>
+        <i class="fa-solid fa-circle-pause" id="pauseIcon"></i>
+        <i class="fa-solid fa-forward-step" id="forwardIcon"></i>
+        <i class="fa-solid fa-repeat" id="repeatIcon"></i>
+        <i class="fa-solid fa-play" id="playingViewIcon"></i>
+        <i class="fa-solid fa-bars-staggered" id="queueIcon"></i>
+        <i class="fa-solid fa-computer" id="connectIcon"></i>
+        <i class="fa-solid fa-volume-high" id="speakerIcon"></i>
+        <input type="range" id="volumeBar">
+        <i class="fa-solid fa-up-right-and-down-left-from-center" id="fullScreenIcon"></i>
+        <hr id="songBar">
+        <span id="text1">-:--</span>
+        <span id="text2">-:--</span>
+    </div>
 </body>
 </html>
